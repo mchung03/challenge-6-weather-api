@@ -1,0 +1,44 @@
+.title {
+    background-image: linear-gradient(to right, rgb(13, 13, 201), rgb(30, 30, 82))
+}
+
+.title h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.search h2 {
+    margin-bottom: 10px;
+}
+
+.search-btn,
+.city-history {
+    margin-top: 10px;
+    width: 12rem;
+}
+
+.search-box {
+    margin-left: 3rem;
+}
+
+.line {
+    margin-top: 15px;
+    border-top: 2px solid grey;
+    margin-bottom: 15px;
+    margin-right: 4rem;
+}
+
+#city-date {
+    border: 3px solid black;
+    width: 41rem;
+    height: 15rem;
+}
+
+.col-sm-2 {
+    border: 3px solid black;
+    width: 15rem;
+    height: 10rem;
+    margin-right: 10px;
+}
