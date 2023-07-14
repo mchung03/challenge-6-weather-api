@@ -47,26 +47,14 @@ var getWeather = function(latitude, longitude) {
 }
 
 var renderForecastData = function(selectedData) {
-    var card1Div = document.querySelector("#card1")
-    card1Div.textContent = "Temp: " + selectedData[0].main.temp + "°F\n"
-    card1Div.textContent += "Wind: " + selectedData[0].wind.speed + "mph\n"
-    card1Div.textContent += "Humidity: " + selectedData[0].main.humidity + "%\n"
-    var card2Div = document.querySelector("#card2")
-    card2Div.textContent = "Temp: " + selectedData[1].main.temp + "°F\n"
-    card2Div.textContent += "Wind: " + selectedData[1].wind.speed + "mph\n"
-    card2Div.textContent += "Humidity: " + selectedData[1].main.humidity + "%\n"
-    var card3Div = document.querySelector("#card3")
-    card3Div.textContent = "Temp: " + selectedData[2].main.temp + "°F\n"
-    card3Div.textContent += "Wind: " + selectedData[2].wind.speed + "mph\n"
-    card3Div.textContent += "Humidity: " + selectedData[2].main.humidity + "%\n"
-    var card4Div = document.querySelector("#card4")
-    card4Div.textContent = "Temp: " + selectedData[3].main.temp + "°F\n"
-    card4Div.textContent += "Wind: " + selectedData[3].wind.speed + "mph\n"
-    card4Div.textContent += "Humidity: " + selectedData[3].main.humidity + "%\n"
-    var card5Div = document.querySelector("#card5")
-    card5Div.textContent = "Temp: " + selectedData[4].main.temp + "°F\n"
-    card5Div.textContent += "Wind: " + selectedData[4].wind.speed + "mph\n"
-    card5Div.textContent += "Humidity: " + selectedData[4].main.humidity + "%\n"
+    for(var i = 0; i < selectedData.length; i++) {
+        var weatherDiv = document.querySelectorAll('.forecast')
+        selectedData[i].dt_txt = dayjs(selectedData[i].dt_txt).format("MMMM D, YYYY") + "\n"
+        weatherDiv[i].textContent = "Date: " + selectedData[i].dt_txt + "\n"
+        weatherDiv[i].textContent += "Temp: " + selectedData[i].main.temp + "°F\n"
+        weatherDiv[i].textContent += "Wind: " + selectedData[i].wind.speed + "mph\n"
+        weatherDiv[i].textContent += "Humidity: " + selectedData[i].main.humidity + "%\n"
+    }
 }
 
 var getCurrentWeather = function(latitude, longitude) {
@@ -85,8 +73,8 @@ var getCurrentWeather = function(latitude, longitude) {
 var renderCurrentData = function(data) {
     var cityName = document.querySelector('#city')
     cityName.textContent = data.name
-    // var todaysDate = document.querySelector('#date')
-    // todaysDate.textContent = dayjs()
+    var todaysDate = document.querySelector('#date')
+    todaysDate.textContent = dayjs().format("MMMM D, YYYY")
     var currentTemp = document.querySelector('#temp')
     currentTemp.textContent = "Temp: " + data.main.temp + "°F"
     var currentWind = document.querySelector('#wind')
