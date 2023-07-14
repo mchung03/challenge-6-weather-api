@@ -7,6 +7,18 @@ var formSubmitHandler = function(event) {
     event.preventDefault();
     var city = cityInputEl.value.trim();
     getGeocode(city)
+    displayHistory(city)
+}
+
+var displayHistory = function(city) {
+    var historyBtn = document.createElement("button")
+    var historyBtns = document.querySelector(".history-btns")
+    historyBtns.appendChild(historyBtn)
+    historyBtn.textContent = city
+
+    historyBtn.addEventListener('click', function(){
+        getGeocode(city)
+    })
 }
 
 var getGeocode = function(city) {
