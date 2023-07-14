@@ -2,7 +2,7 @@
 
 ## Description
 
-This website uses the OpenWeather Map API to retrieve data and display the current weather and five day forecast after the user inputs a city. Its purpose is for users to check the weather in a particular city. I learned to incorporate third party APIs, as well as linking different APIs to work together. Check it out: 
+This website uses the OpenWeather Map API to retrieve data and display the current weather and five day forecast after the user inputs a city. Its purpose is for users to check the weather in a particular city. I learned to incorporate third party APIs, as well as linking different APIs to work together. Check it out: (https://mchung03.github.io/challenge-6-weather-api/)
 
 ## Installation
 
