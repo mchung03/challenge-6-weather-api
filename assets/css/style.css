@@ -39,6 +39,7 @@
 .col-sm-2 {
     border: 3px solid black;
     width: 16rem;
-    height: 10rem;
+    height: 15rem;
     margin-right: 10px;
+    background-color: #178f93;
 }

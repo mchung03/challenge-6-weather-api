@@ -48,24 +48,27 @@ var getWeather = function(latitude, longitude) {
         .then(function(data){
             console.log(data);
             var selectedData = [
-                data.list[0],
-                data.list[8],
-                data.list[16],
-                data.list[24],
-                data.list[32],
+                data.list[5],
+                data.list[13],
+                data.list[20],
+                data.list[27],
+                data.list[34],
             ]
             renderForecastData(selectedData);
         })
 }
 
 var renderForecastData = function(selectedData) {
+    var weatherDiv = document.querySelectorAll('.forecast')
     for(var i = 0; i < selectedData.length; i++) {
-        var weatherDiv = document.querySelectorAll('.forecast')
         selectedData[i].dt_txt = dayjs(selectedData[i].dt_txt).format("MMMM D, YYYY") + "\n"
         weatherDiv[i].textContent = "Date: " + selectedData[i].dt_txt + "\n"
+        var icon = document.createElement("img")
+        icon.src = 'https://openweathermap.org/img/wn/' + selectedData[i].weather[0].icon + '@2x.png'
         weatherDiv[i].textContent += "Temp: " + selectedData[i].main.temp + "°F\n"
         weatherDiv[i].textContent += "Wind: " + selectedData[i].wind.speed + "mph\n"
         weatherDiv[i].textContent += "Humidity: " + selectedData[i].main.humidity + "%\n"
+        weatherDiv[i].appendChild(icon)
     }
 }
 
