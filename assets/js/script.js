@@ -7,6 +7,9 @@ var formSubmitHandler = function(event) {
     var city = cityInputEl.value.trim();
     getGeocode(city)
     displayHistory(city)
+    var savedCities = JSON.parse(localStorage.getItem("pastCities")) || [];
+    savedCities.push(city)
+    localStorage.setItem("pastCities", JSON.stringify(savedCities))
 }
 
 var displayHistory = function(city) {
@@ -21,7 +24,7 @@ var displayHistory = function(city) {
 }
 
 var getGeocode = function(city) {
-    var geocodeUrl = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=8ab147a2ce61d167a2957cd01bcc016b'
+    var geocodeUrl = 'https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&limit=1&appid=8ab147a2ce61d167a2957cd01bcc016b'
 
     fetch(geocodeUrl)
     .then(function(response) {
@@ -87,6 +90,9 @@ var getCurrentWeather = function(latitude, longitude) {
 var renderCurrentData = function(data) {
     var cityName = document.querySelector('#city')
     cityName.textContent = data.name
+    var icon = document.createElement("img")
+    icon.src = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
+    cityName.append(icon)
     var todaysDate = document.querySelector('#date')
     todaysDate.textContent = dayjs().format("MMMM D, YYYY")
     var currentTemp = document.querySelector('#temp')
@@ -98,3 +104,8 @@ var renderCurrentData = function(data) {
 }
 
 cityFormEl.addEventListener("submit", formSubmitHandler)
+
+var savedCities = JSON.parse(localStorage.getItem("pastCities")) || []
+for(var i = 0; i < savedCities.length; i++) {
+    displayHistory(savedCities[i])
+}
