@@ -53,5 +53,5 @@ This project was built using HTML, CSS, and JavaScript and uses the following te
 
 * mdn: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search
 * stackoverflow: https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent
-* Classmate Joon Moon
+* Classmate June Moon
 * Tutor Joem Casusi
